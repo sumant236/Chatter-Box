@@ -36,7 +36,7 @@ const ChattingBox = styled(Box)({
   "&-ms-overflow-style:": {
     display: "none",
   },
-  height: "447px",
+  height: "auto",
 });
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
