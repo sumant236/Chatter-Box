@@ -19,10 +19,8 @@ import useAlert from "./Alert/useAlert";
 import axios from "axios";
 import ScrollableChat from "./ScrollableChat";
 import io from "socket.io-client";
-import Lottie from "lottie-react";
-import animationData from "../typing_animation.json";
 
-const ENDPOINT = "http://localhost:8000";
+const ENDPOINT = "https://chatterbox-backend-5x94.onrender.com";
 var socket, selectedChatCompare;
 
 const ChattingBox = styled(Box)({
@@ -36,7 +34,6 @@ const ChattingBox = styled(Box)({
   "&-ms-overflow-style:": {
     display: "none",
   },
-  height: "447px",
 });
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -84,7 +81,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
       setNewMessage("");
       axios
-        .post("http://localhost:8000/api/message/", data, config)
+        .post(
+          "https://chatterbox-backend-5x94.onrender.com/api/message/",
+          data,
+          config
+        )
         .then((res) => {
           socket.emit("new message", res.data);
           setMessages([...messages, res.data]);
@@ -106,7 +107,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     };
 
     axios
-      .get(`http://localhost:8000/api/message/${selectedChat._id}`, config)
+      .get(
+        `https://chatterbox-backend-5x94.onrender.com/api/message/${selectedChat._id}`,
+        config
+      )
       .then((res) => {
         setMessages(res.data);
         socket.emit("join chat", selectedChat._id);
@@ -168,7 +172,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         !selectedChatCompare ||
         selectedChatCompare._id !== newMsgRecieved.chat._id
       ) {
-        // give notification
         if (!notification.includes(newMsgRecieved)) {
           setNotification([newMsgRecieved, ...notification]);
           setFetchAgain(!fetchAgain);
@@ -256,14 +259,22 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 {isTyping && (
                   <Box
                     sx={{
-                      width: "70px",
+                      width: "fit-content",
                       height: "29px",
-                      ml: 4,
+                      ml: 3,
                       mt: "3px",
+                      p: 1,
                       position: "block",
+                      color: "teal",
+                      background: "#CAF2E1",
+                      opacity: "0.5",
+                      overflowX: "none",
                     }}
                   >
-                    <Lottie animationData={animationData} loop autoPlay />
+                    <Typography>{`${getSender(
+                      user,
+                      selectedChat.users
+                    )} is typing...`}</Typography>
                   </Box>
                 )}
                 <OutlinedInput

@@ -41,7 +41,10 @@ const GroupChatModal = ({ open, handleClose }) => {
     };
 
     axios
-      .get(`http://localhost:8000/api/user?search=${value}`, config)
+      .get(
+        `https://chatterbox-backend-5x94.onrender.com/api/user?search=${value}`,
+        config
+      )
       .then((res) => setSearchResult(res.data))
       .catch((err) => showAlert("error", "Unable to find the user"))
       .finally(() => setLoading(false));
@@ -77,7 +80,7 @@ const GroupChatModal = ({ open, handleClose }) => {
 
     axios
       .post(
-        "http://localhost:8000/api/chat/group",
+        "https://chatterbox-backend-5x94.onrender.com/api/chat/group",
         {
           name: chatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),

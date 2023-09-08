@@ -84,7 +84,10 @@ const SideDrawer = () => {
     };
 
     await axios
-      .get(`http://localhost:8000/api/user?search=${search}`, config)
+      .get(
+        `https://chatterbox-backend-5x94.onrender.com/api/user?search=${search}`,
+        config
+      )
       .then((res) => {
         setSearchResult(res.data);
       })
@@ -99,7 +102,11 @@ const SideDrawer = () => {
       headers: { Authorization: `Bearer ${user.token}` },
     };
     axios
-      .post("http://localhost:8000/api/chat", { userId }, config)
+      .post(
+        "https://chatterbox-backend-5x94.onrender.com/api/chat",
+        { userId },
+        config
+      )
       .then((res) => {
         if (!chats.find((chat) => chat._id === res.data._id)) {
           setChats([res.data, ...chats]);

@@ -22,7 +22,7 @@ const MyChats = ({ fetchAgain }) => {
       headers: { Authorization: `Bearer ${user.token}` },
     };
     axios
-      .get("http://localhost:8000/api/chat", config)
+      .get("https://chatterbox-backend-5x94.onrender.com/api/chat", config)
       .then((res) => setChats(res.data))
       .catch((err) => showAlert("error", "Error Occured"))
       .finally(() => setLoading(false));

@@ -52,7 +52,7 @@ const UpdateGroupChatModal = ({
     };
     axios
       .put(
-        "http://localhost:8000/api/chat/removeUser",
+        "https://chatterbox-backend-5x94.onrender.com/api/chat/removeUser",
         {
           chatId: selectedChat._id,
           userId: userToRemove._id,
@@ -84,7 +84,7 @@ const UpdateGroupChatModal = ({
 
     axios
       .put(
-        "http://localhost:8000/api/chat/renameGroup",
+        "https://chatterbox-backend-5x94.onrender.com/api/chat/renameGroup",
         { chatId: selectedChat._id, chatName: groupChatName },
         config
       )
@@ -113,7 +113,10 @@ const UpdateGroupChatModal = ({
     };
 
     axios
-      .get(`http://localhost:8000/api/user?search=${value}`, config)
+      .get(
+        `https://chatterbox-backend-5x94.onrender.com/api/user?search=${value}`,
+        config
+      )
       .then((res) => setSearchResult(res.data))
       .catch((err) => showAlert("error", "Unable to find the user"))
       .finally(() => setLoading(false));
@@ -143,7 +146,7 @@ const UpdateGroupChatModal = ({
     setLoading(true);
     axios
       .put(
-        "http://localhost:8000/api/chat/addToGroup",
+        "https://chatterbox-backend-5x94.onrender.com/api/chat/addToGroup",
         {
           chatId: selectedChat._id,
           userId: userToAdd._id,

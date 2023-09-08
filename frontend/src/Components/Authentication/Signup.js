@@ -73,7 +73,7 @@ const Signup = () => {
     try {
       const config = { headers: { "Content-type": "application/json" } };
       const { data } = await axios.post(
-        "http://localhost:8000/api/user",
+        "https://chatterbox-backend-5x94.onrender.com/api/user",
         {
           name: name,
           email: email,

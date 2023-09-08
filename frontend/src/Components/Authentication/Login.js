@@ -33,7 +33,7 @@ const Login = () => {
     const config = { headers: { "Content-type": "application/json" } };
     await axios
       .post(
-        "http://localhost:8000/api/user/login",
+        "https://chatterbox-backend-5x94.onrender.com/api/user/login",
         {
           email,
           password,
