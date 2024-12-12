@@ -13,22 +13,27 @@ Chatterbox is an innovative chat application built on the robust MERN stack, des
 Quick and secure user registration and authentication.
 Password encryption for data security.
 Personalized user profiles for a unique chat experience.
+
 2. Real-time Messaging:
 
 Powered by WebSocket (Socket.io) for instant message delivery.
 Enjoy smooth, lag-free communication with friends and groups.
+
 3. Friend Search and Chat:
 
 Find and connect with friends effortlessly.
 Start chatting instantly with your discovered friends.
+
 4. Group Creation:
 
 Create your own chat groups with friends or colleagues.
 Customize group names and avatars for easy identification.
+
 5. Group Management:
 
 Group administrators can add or remove members.
 Streamlined group interactions with real-time updates.
+
 6. Message Notifications:
 
 Stay informed with message notifications, even when inactive.
@@ -39,7 +44,7 @@ With Chatterbox, communication becomes more than just sending messages; it's abo
 Detailed instructions on how to install, configure, and get the project running.
 
 ```bash
-git clone [https://github.com/sumant236/Chatter-Box.git](https://github.com/sumant236/Chatter-Box.git)
+git clone 'https://github.com/sumant236/Chatter-Box.git'
 cd Chatter-Box
 npm install 
 # or
@@ -50,7 +55,7 @@ yarn start
 ```
 
 ## Usage
-1. Go to [http://localhost:3000/](http://localhost:3000/) or [https://chatter-box-sandy.vercel.app](https://chatter-box-sandy.vercel.app)
+1. Go to [http://localhost:3000/](http://localhost:3000/) (if user has cloned the repository) or [https://chatter-box-sandy.vercel.app](https://chatter-box-sandy.vercel.app)
    ![chatterbox-landingPage](https://github.com/sumant236/Chatter-Box/assets/53209266/9262be56-b4c9-4029-95fb-c7352629f27a)
 
 2. Welcome to homepage. Select search user to search your registered friend in Chatter-Box
