@@ -57,6 +57,11 @@ const Signup = () => {
     }
   };
 
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const submitHandler = async () => {
     setLoading(true);
     if (!name || !email || !password || !confirmPassword) {
@@ -64,6 +69,13 @@ const Signup = () => {
       setLoading(false);
       return;
     }
+
+    if (!isValidEmail(email)) {
+      showAlert("warning", "Invalid Email");
+      setLoading(false);
+      return;
+    }
+
     if (password !== confirmPassword) {
       showAlert("warning", "Password Do Not Match");
       setLoading(false);

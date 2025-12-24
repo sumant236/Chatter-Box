@@ -241,7 +241,10 @@ const SideDrawer = () => {
             }
             placeholder="Search By name or email"
             sx={{ borderRadius: "10px", mb: 3, width: "100%" }}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              handleSearch();
+            }}
             value={search}
           />
           {loading ? (
